@@ -1,0 +1,8 @@
+:root { --purple: #8334b5; --gold: #d4af37; --black: #212121; }
+body { font-family: sans-serif; background: #f5f5f5; transition: background 0.3s; }
+.dark-mode { background: #121212; color: #f5f5f5; }
+.scroll-to-top { position: fixed; bottom: 20px; right: 20px; display: none; }
+.accordion-item p { max-height: 0; overflow: hidden; transition: max-height 0.3s; }
+#preloader { position: fixed; width: 100%; height: 100%; background: #212121; display: flex; }
+.loader { width: 50px; height: 50px; border: 5px solid #f3f3f3; border-top: 5px solid #d4af37; border-radius: 50%; animation: spin 1s linear infinite; }
+@keyframes spin { 0% { transform: rotate(0); } 100% { transform: rotate(360deg); } }
