@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfica Império SA - Papelaria Personalizada</title>
+    <meta name="description" content="Gráfica especializada em papelaria personalizada e impressão premium.">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Gráfica Império SA">
+    <meta name="keywords" content="gráfica, papelaria, cartões de visita, convites, etiquetas, marketing visual">
+    <link rel="canonical" href="https://www.graficaimperiosa.com.br/">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --purple: #8334b5;
+            --gold: #d4af37;
+            --black: #212121;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+        }
+        
+        header {
+            background-color: var(--black);
+            color: white;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: var(--black);
+            border: 3px solid var(--purple);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            margin-right: 1rem;
+            background-image: url('logo.png');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .logo-text {
+            color: white;
+            text-align: left;
+        }
+        
+        .logo-title {
+            color: var(--purple);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .logo-subtitle {
+            color: white;
+            font-size: 0.85rem;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav li {
+            margin-left: 1.5rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--gold);
+        }
+        
+        .hero {
+            background-color: var(--purple);
+            color: white;
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+        }
+        
+        .hero p {
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-button {
+            background-color: var(--gold);
+            color: var(--black);
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .services {
+            padding: 3rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--purple);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 100px;
+            height: 3px;
+            background-color: var(--gold);
+            margin: 0.5rem auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .service-image {
+            height: 200px;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #aaa;
+        }
+        
+        .service-content {
+            padding: 1.5rem;
+        }
+        
+        .service-content h3 {
+            color: var(--purple);
+            margin-bottom: 1rem;
+        }
+        
+        .gallery {
+            background-color: var(--black);
+            padding: 3rem 1rem;
+            color: white;
+        }
+        
+        .gallery .section-title {
+            color: white;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .gallery-item {
+            height: 250px;
+            background-color: #444;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #aaa;
+        }
+        
+        .contact {
+            padding: 3rem 1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .contact-form {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--black);
+            font-weight: bold;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-button {
+            background-color: var(--purple);
+            color: white;
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .submit-button:hover {
+            background-color: #6b2798;
+        }
+        
+        footer {
+            background-color: var(--black);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: left;
+        }
+        
+        .footer-column h3 {
+            color: var(--gold);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-column a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column a:hover {
+            color: var(--gold);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--gold);
+        }
+        
+        .footer-bottom {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #444;
+        }
+        
+        .whatsapp-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            font-size: 2rem;
+            z-index: 1000;
+            transition: transform 0.3s;
+        }
+        
+        .whatsapp-button:hover {
+            transform: scale(1.1);
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav li {
+                margin: 0.5rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <div class="logo">
+  <img src="logo.png" alt="Logo da Gráfica Império SA" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;" />
+</div>
+            <div class="logo-text">
+                <div class="logo-title">GRÁFICA IMPÉRIO SA</div>
+                <div class="logo-subtitle">PAPELARIA PERSONALIZADA</div>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#galeria">Galeria</a></li>
+                <li><a href="#sobre">Sobre Nós</a></li>
+                <li><a href="#contato">Contato</a></li>
+                <li><a href="https://www.graficaimperiosa.com.br" target="_blank">Site Oficial</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="inicio" class="hero">
+        <h1>Soluções Gráficas de Qualidade Imperial</h1>
+        <p>Oferecemos serviços completos de impressão, papelaria personalizada e soluções gráficas para empresas e indivíduos que buscam excelência e sofisticação.</p>
+        <a href="https://wa.me/5577981352377" class="cta-button" target="_blank">Solicite um Orçamento</a>
+    </section>
+    
+    <section id="servicos" class="services">
+        <h2 class="section-title">Nossos Serviços</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-image">Imagem: Cartões de Visita</div>
+                <div class="service-content">
+                    <h3>Cartões de Visita</h3>
+                    <p>Impressão de cartões de visita personalizados com acabamento premium, incluindo opções de relevo, hot stamping e verniz localizado.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-image">Imagem: Material Corporativo</div>
+                <div class="service-content">
+                    <h3>Material Corporativo</h3>
+                    <p>Papelaria completa para empresas: envelopes, papel timbrado, pastas personalizadas e muito mais com sua identidade visual.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-image">Imagem: Convites</div>
+                <div class="service-content">
+                    <h3>Convites Especiais</h3>
+                    <p>Criação e impressão de convites para eventos, casamentos, formaturas e ocasiões especiais com acabamentos de luxo.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-image">Imagem: Marketing</div>
+                <div class="service-content">
+                    <h3>Material de Marketing</h3>
+                    <p>Folhetos, catálogos, banners, flyers e todo tipo de material promocional para divulgar sua marca ou evento.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-image">Imagem: Etiquetas</div>
+                <div class="service-content">
+                    <h3>Etiquetas e Adesivos</h3>
+                    <p>Produção de etiquetas adesivas personalizadas em diversos formatos e materiais para produtos e embalagens.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="galeria" class="gallery">
+        <h2 class="section-title">Galeria de Trabalhos</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">Projeto 1</div>
+            <div class="gallery-item">Projeto 2</div>
+            <div class="gallery-item">Projeto 3</div>
+            <div class="gallery-item">Projeto 4</div>
+            <div class="gallery-item">Projeto 5</div>
+            <div class="gallery-item">Projeto 6</div>
+        </div>
+    </section>
+    
+    <section id="sobre" class="services">
+        <h2 class="section-title">Sobre Nós</h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem auto;">A Gráfica Império SA é especializada em soluções gráficas de alta qualidade e papelaria personalizada. Com mais de 2 anos de experiência no mercado, nossa empresa se destaca pelo comprometimento com a excelência, atendimento personalizado e uso de tecnologias avançadas de impressão.</p>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto;">Nossa missão é transformar ideias em projetos gráficos sofisticados que atendam às necessidades específicas de cada cliente, seja para uso corporativo ou pessoal. Trabalhamos com os melhores materiais e oferecemos uma ampla gama de opções de acabamentos para garantir resultados impecáveis em todos os nossos produtos.</p>
+    </section>
+    
+    <section id="contato" class="contact">
+        <h2 class="section-title">Entre em Contato</h2>
+        <div class="contact-form">
+            <form action="https://formspree.io/f/xdkgjjqz" method="POST">
+                <input type="hidden" name="_redirect" value="https://www.graficaimperiosa.com.br/obrigado.html">
+                <div class="form-group">
+                    <label for="nome">Nome Completo</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefone">Telefone</label>
+                    <input type="tel" id="telefone" name="telefone">
+                </div>
+                <div class="form-group">
+                    <label for="servico">Serviço de Interesse</label>
+                    <select id="servico" name="servico">
+                        <option value="">Selecione uma opção</option>
+                        <option value="cartoes">Cartões de Visita</option>
+                        <option value="corporativo">Material Corporativo</option>
+                        <option value="convites">Convites Especiais</option>
+                        <option value="marketing">Material de Marketing</option>
+                        <option value="etiquetas">Etiquetas e Adesivos</option>
+                        <option value="outro">Outro</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="mensagem">Mensagem</label>
+                    <textarea id="mensagem" name="mensagem" required></textarea>
+                </div>
+                <button type="submit" class="submit-button">Enviar Mensagem</button>
+            </form>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Gráfica Império SA</h3>
+                <p>Soluções gráficas de alta qualidade e papelaria personalizada para empresas e indivíduos exigentes.</p>
+                <div class="social-links">
+                    <a href="https://instagram.com/graficaimperiosa" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://tiktok.com/@graficaimperiosa?lang=pt-br" target="_blank"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://threads.com/@graficaimperiosa" target="_blank"><i class="fab fa-threads"></i></a>
+                    <a href="https://youtube.com/@GRAFICAIMPERIOSA" target="_blank"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Links Rápidos</h3>
+                <ul>
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#galeria">Galeria</a></li>
+                    <li><a href="#sobre">Sobre Nós</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contato</h3>
+                <ul>
+                    <li>WhatsApp: (77) 98135-2377</li>
+                    <li>E-mail: contato@graficaimperio.com.br</li>
+                    <li>Site: <a href="https://www.graficaimperiosa.com.br" target="_blank">www.graficaimperiosa.com.br</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Horário de Funcionamento</h3>
+                <ul>
+                    <li>Segunda a Sexta: 8h às 18h</li>
+                    <li>Sábado: Fechado</li>
+                    <li>Domingo e Feriados: Fechado</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Gráfica Império SA - Todos os direitos reservados</p>
+            <p style="margin-top: 10px;">Siga-nos nas redes sociais: @graficaimperiosa | <a href="https://www.graficaimperiosa.com.br" style="color: var(--gold);">www.graficaimperiosa.com.br</a></p>
+        </div>
+    </footer>
+    
+    <a href="https://wa.me/5577981352377" class="whatsapp-button" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Script para carregar a imagem real do logo
+            const logoDiv = document.querySelector('.logo');
+            if (logoDiv) {
+                // Tentativa de usar a imagem real do logo fornecida
+                const img = new Image();
+                img.onload = function() {
+                    logoDiv.style.backgroundImage = `url('${img.src}')`;
+                };
+                img.onerror = function() {
+                    // Falha ao carregar a imagem, manter o estilizado
+                    console.log('Imagem de logo não encontrada');
+                };
+                img.src = 'logo.png';
+            }
+            
+            // Script para navegação suave
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId !== '#') {
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            targetElement.scrollIntoView({
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+            
+            // Script para adicionar funcionalidade ao botão CTA
+            const ctaButton = document.querySelector('.cta-button');
+            if (ctaButton && !ctaButton.getAttribute('href')) {
+                ctaButton.addEventListener('click', function() {
+                    window.open('https://wa.me/5577981352377', '_blank');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
